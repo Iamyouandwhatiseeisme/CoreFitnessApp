@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -74,13 +75,10 @@ class _MyHomePageState extends State<LoginPage> {
                       SizedBox(height: 20),
 
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(
-                              top: 10,
-                              right: 20.0,
-                            ),
+                            padding: const EdgeInsets.only(top: 10, left: 20.0),
                             child: Text(
                               "Forgot Password",
                               style: TextStyle(
@@ -88,14 +86,44 @@ class _MyHomePageState extends State<LoginPage> {
                               ),
                             ),
                           ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: ElevatedButton(
+                              onPressed: () {},
+                              child: Text('Login'),
+                            ),
+                          ),
                         ],
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          child: Text('Login'),
-                        ),
+
+                      SizedBox(height: 10),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text("Don't have an account?"),
+                          TextButton(onPressed: () {}, child: Text('Sign Up')),
+                        ],
+                      ),
+                      Divider(
+                        color: Colors.grey.withAlpha(50),
+                        height: 20,
+                        thickness: 1,
+                        indent: 20,
+                        endIndent: 20,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [Text("Or login with")],
+                      ),
+                      ElevatedButton.icon(
+                        onPressed: () {},
+                        label: Text("Google"),
+                        icon: SvgPicture.asset('assets/icons/google.svg'),
+                      ),
+                      ElevatedButton.icon(
+                        onPressed: () {},
+                        label: Text("Github"),
+                        icon: SvgPicture.asset('assets/icons/github.svg'),
                       ),
                     ],
                   ),
