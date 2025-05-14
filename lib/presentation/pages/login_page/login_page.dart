@@ -72,6 +72,24 @@ class _MyHomePageState extends State<LoginPage> {
                         ),
                       ),
                       SizedBox(height: 20),
+
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              top: 10,
+                              right: 20.0,
+                            ),
+                            child: Text(
+                              "Forgot Password",
+                              style: TextStyle(
+                                decoration: TextDecoration.underline,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: ElevatedButton(
