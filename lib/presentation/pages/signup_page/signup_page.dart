@@ -2,14 +2,14 @@ import 'package:core_fitness/presentation/presentation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class SignUpPage extends StatefulWidget {
+  const SignUpPage({super.key});
 
   @override
-  State<LoginPage> createState() => _MyHomePageState();
+  State<SignUpPage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<LoginPage> {
+class _MyHomePageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -135,15 +135,15 @@ class _MyHomePageState extends State<LoginPage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text("Don't have an account?"),
+                            Text("Already have an account?"),
                             TextButton(
                               onPressed: () {
                                 Navigator.pushReplacementNamed(
                                   context,
-                                  NavigatorClient.signUpPage,
+                                  NavigatorClient.loginPage,
                                 );
                               },
-                              child: Text('Sign Up'),
+                              child: Text('Log in'),
                             ),
                           ],
                         ),
