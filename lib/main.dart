@@ -1,7 +1,12 @@
-import 'package:core_fitness/presentation/pages/login_page/login_page.dart';
+import 'package:core_fitness/data/get_it_methods.dart';
+import 'package:core_fitness/presentation/presentation.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
+
+final sl = GetIt.instance;
 
 void main() {
+  setUp();
   runApp(const MyApp());
 }
 
@@ -16,7 +21,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const LoginPage(),
+      // home: const LoginPage(),
+      routes: sl.get<NavigatorClient>().routes,
     );
   }
 }
