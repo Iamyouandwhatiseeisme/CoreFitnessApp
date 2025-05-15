@@ -43,28 +43,28 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class AuthWrapper extends StatelessWidget {
-  const AuthWrapper({super.key});
+// class AuthWrapper extends StatelessWidget {
+//   const AuthWrapper({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return BlocListener<AuthenticationCubit, AuthenticationState>(
-      listener: (context, state) {},
-      child: BlocBuilder<AuthenticationCubit, AuthenticationState>(
-        builder: (context, state) {
-          debugPrint(state.toString());
-          if (state is AuthenticationInitial) {
-            return const LoginPage();
-          } else if (state is AuthenticationSigningIn) {
-            return const LandingPage();
-          } else if (state is AuthenticationSignedOut) {
-            return const LoginPage();
-          } else if (state is AuthenticationSignInError) {
-            return const LoginPage();
-          }
-          return const LandingPage();
-        },
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return BlocListener<AuthenticationCubit, AuthenticationState>(
+//       listener: (context, state) {},
+//       child: BlocBuilder<AuthenticationCubit, AuthenticationState>(
+//         builder: (context, state) {
+//           debugPrint(state.toString());
+//           if (state is AuthenticationInitial) {
+//             return const LoginPage();
+//           } else if (state is AuthenticationSigningIn) {
+//             return const LandingPage();
+//           } else if (state is AuthenticationSignedOut) {
+//             return const LoginPage();
+//           } else if (state is AuthenticationSignInError) {
+//             return const LoginPage();
+//           }
+//           return const LandingPage();
+//         },
+//       ),
+//     );
+//   }
+// }

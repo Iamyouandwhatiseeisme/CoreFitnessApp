@@ -3,6 +3,7 @@ import 'package:core_fitness/presentation/presentation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -179,9 +180,16 @@ class _LoginFormState extends State<LoginForm> {
               height: 40,
             ),
             onPressed: () async {
-              await BlocProvider.of<AuthenticationCubit>(
-                context,
-              ).signInWithGithub();
+              // BlocProvider.of<AuthenticationCubit>(context)
+              //     .signInWithGithub();
+              Supabase.instance.client.auth.signInWithOAuth(
+                OAuthProvider.github,
+                redirectTo: 'corefitness://login-callback',
+                authScreenLaunchMode: LaunchMode.externalApplication,
+              );
+
+              final currentUser = Supabase.instance.client.auth.currentUser;
+              debugPrint(currentUser?.email);
             },
           ),
         ],
