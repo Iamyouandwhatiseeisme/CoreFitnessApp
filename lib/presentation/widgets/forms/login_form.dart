@@ -1,5 +1,7 @@
+import 'package:core_fitness/bloc/cubit/authentication_cubit.dart';
 import 'package:core_fitness/presentation/presentation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
 class LoginForm extends StatefulWidget {
@@ -138,6 +140,10 @@ class _LoginFormState extends State<LoginForm> {
                     context,
                     NavigatorClient.signUpPage,
                   );
+                  // Navigator.pushReplacementNamed(
+                  //   context,
+                  //   NavigatorClient.signUpPage,
+                  // );
                 },
                 child: Text('Sign Up'),
               ),
@@ -172,7 +178,11 @@ class _LoginFormState extends State<LoginForm> {
               width: 40,
               height: 40,
             ),
-            onPressed: () {},
+            onPressed: () async {
+              await BlocProvider.of<AuthenticationCubit>(
+                context,
+              ).signInWithGithub();
+            },
           ),
         ],
       ),

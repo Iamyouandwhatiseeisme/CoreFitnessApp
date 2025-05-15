@@ -27,7 +27,9 @@ class OauthButton extends StatelessWidget {
           ),
           padding: EdgeInsets.symmetric(horizontal: 0, vertical: 10),
         ),
-        onPressed: () {},
+        onPressed: () {
+          onPressed();
+        },
         label: Text(
           text,
           style: TextStyle(
