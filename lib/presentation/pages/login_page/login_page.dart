@@ -1,14 +1,16 @@
+import 'package:core_fitness/bloc/cubit/authentication_cubit.dart';
 import 'package:core_fitness/presentation/presentation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
   @override
-  State<LoginPage> createState() => _MyHomePageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _MyHomePageState extends State<LoginPage> {
+class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,23 +35,18 @@ class _MyHomePageState extends State<LoginPage> {
                   color: Colors.white.withValues(alpha: 0.99),
                   borderRadius: BorderRadius.circular(20),
                 ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Container(
-                      padding: EdgeInsets.all(10),
-                      margin: EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        border: BoxBorder.all(
-                          color: Colors.grey.withAlpha(80),
-                          width: 2,
-                        ),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-
-                      child: LoginForm(),
+                child: Container(
+                  padding: EdgeInsets.all(10),
+                  margin: EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    border: BoxBorder.all(
+                      color: Colors.grey.withAlpha(80),
+                      width: 2,
                     ),
-                  ],
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+
+                  child: LoginForm(),
                 ),
               ),
             ),
