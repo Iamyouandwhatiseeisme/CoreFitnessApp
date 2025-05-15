@@ -163,71 +163,25 @@ class _MyHomePageState extends State<LoginPage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [Text("Or login with")],
                             ),
-                            SizedBox(
-                              width: double.infinity,
-                              child: ElevatedButton.icon(
-                                style: ElevatedButton.styleFrom(
-                                  elevation: 5,
-                                  foregroundColor: Colors.white,
-                                  shadowColor: Colors.grey.withAlpha(70),
-                                  backgroundColor: Colors.grey.withAlpha(80),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: 20,
-                                    vertical: 10,
-                                  ),
-                                ),
-                                onPressed: () {},
-                                label: Text(
-                                  "Sign in with Google",
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black.withAlpha(200),
-                                  ),
-                                ),
-                                // icon: Icon(SimpleIcons.google),
-                                icon: SvgPicture.asset(
-                                  'assets/icons/google.svg',
-                                  width: 40,
-                                  height: 40,
-                                ),
+                            OauthButton(
+                              text: "Sign in with Google",
+                              icon: SvgPicture.asset(
+                                'assets/icons/google.svg',
+                                width: 40,
+                                height: 40,
                               ),
+                              onPressed: () {},
                             ),
+
                             SizedBox(height: 10),
-                            SizedBox(
-                              width: double.infinity,
-                              child: ElevatedButton.icon(
-                                style: ElevatedButton.styleFrom(
-                                  elevation: 5,
-                                  foregroundColor: Colors.white,
-                                  shadowColor: Colors.grey.withAlpha(70),
-                                  backgroundColor: Colors.grey.withAlpha(80),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: 0,
-                                    vertical: 10,
-                                  ),
-                                ),
-                                onPressed: () {},
-                                label: Text(
-                                  "Sign in with Github",
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black.withAlpha(200),
-                                  ),
-                                ),
-                                icon: SvgPicture.asset(
-                                  'assets/icons/github.svg',
-                                  width: 40,
-                                  height: 40,
-                                ),
+                            OauthButton(
+                              text: "Sign in with Github",
+                              icon: SvgPicture.asset(
+                                'assets/icons/github.svg',
+                                width: 40,
+                                height: 40,
                               ),
+                              onPressed: () {},
                             ),
                           ],
                         ),
@@ -239,6 +193,47 @@ class _MyHomePageState extends State<LoginPage> {
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class OauthButton extends StatelessWidget {
+  final String text;
+  final Widget icon;
+  final VoidCallback onPressed;
+  const OauthButton({
+    super.key,
+    required this.text,
+    required this.icon,
+    required this.onPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: double.infinity,
+      child: ElevatedButton.icon(
+        style: ElevatedButton.styleFrom(
+          elevation: 5,
+          foregroundColor: Colors.white,
+          shadowColor: Colors.grey.withAlpha(70),
+          backgroundColor: Colors.grey.withAlpha(35),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          padding: EdgeInsets.symmetric(horizontal: 0, vertical: 10),
+        ),
+        onPressed: () {},
+        label: Text(
+          text,
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: Colors.black.withAlpha(200),
+          ),
+        ),
+        icon: icon,
       ),
     );
   }
