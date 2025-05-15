@@ -38,7 +38,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
 
       await _client.auth.signInWithOAuth(
         OAuthProvider.github,
-        redirectTo: kIsWeb ? null : 'corefitness://login-callback',
+        redirectTo: kIsWeb ? null : 'corefitness://login-callback/',
         authScreenLaunchMode: kIsWeb
             ? LaunchMode.platformDefault
             : LaunchMode.externalApplication,

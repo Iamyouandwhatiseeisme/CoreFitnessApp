@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 
 class NavigatorClient {
   // static const String authWrapper = '/';
-  static const String loginPage = '/';
+  static const String landingPage = '/';
   static const String signUpPage = '/signup';
-  static const String landingPage = '/landing';
+  static const String loginPage = '/landing';
 
   final Map<String, WidgetBuilder> routes = {
     // authWrapper: (context) => const AuthWrapper(),

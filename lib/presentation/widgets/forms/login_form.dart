@@ -180,13 +180,7 @@ class _LoginFormState extends State<LoginForm> {
               height: 40,
             ),
             onPressed: () async {
-              // BlocProvider.of<AuthenticationCubit>(context)
-              //     .signInWithGithub();
-              Supabase.instance.client.auth.signInWithOAuth(
-                OAuthProvider.github,
-                redirectTo: 'corefitness://login-callback',
-                authScreenLaunchMode: LaunchMode.externalApplication,
-              );
+              await context.read<AuthenticationCubit>().signInWithGithub();
 
               final currentUser = Supabase.instance.client.auth.currentUser;
               debugPrint(currentUser?.email);

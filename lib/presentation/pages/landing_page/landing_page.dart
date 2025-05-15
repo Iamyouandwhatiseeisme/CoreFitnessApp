@@ -15,21 +15,27 @@ class _LandingPageState extends State<LandingPage> {
   final supabase = Supabase.instance.client;
   @override
   Widget build(BuildContext context) {
+    debugPrint("landing page");
     return BlocListener<AuthenticationCubit, AuthenticationState>(
-      listener: (context, state) {
-        // if (state is AuthenticationSignedOut) {
-        //   Navigator.pushReplacementNamed(context, NavigatorClient.loginPage);
-        // }
-      },
-      child: Scaffold(
-        body: Center(
-          child: TextButton(
-            onPressed: () {
-              supabase.auth.signOut();
-            },
-            child: Text("signout"),
-          ),
-        ),
+      listener: (context, state) {},
+      child: BlocBuilder<AuthenticationCubit, AuthenticationState>(
+        builder: (context, state) {
+          if (state is AuthenticationSignedIn) {
+            debugPrint("signed instate");
+            return Scaffold(
+              body: Center(
+                child: TextButton(
+                  onPressed: () {
+                    supabase.auth.signOut();
+                  },
+                  child: Text("signout"),
+                ),
+              ),
+            );
+          } else {
+            return LoginPage();
+          }
+        },
       ),
     );
   }
