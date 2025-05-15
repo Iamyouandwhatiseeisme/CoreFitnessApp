@@ -1,6 +1,5 @@
 import 'package:core_fitness/presentation/presentation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
