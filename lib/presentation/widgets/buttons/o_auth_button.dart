@@ -15,14 +15,15 @@ class OauthButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
+      height: 50,
       child: ElevatedButton.icon(
         style: ElevatedButton.styleFrom(
-          elevation: 5,
+          elevation: 1,
           foregroundColor: Colors.white,
           shadowColor: Colors.grey.withAlpha(70),
           backgroundColor: Colors.grey.withAlpha(35),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(25),
           ),
           padding: EdgeInsets.symmetric(horizontal: 0, vertical: 10),
         ),
