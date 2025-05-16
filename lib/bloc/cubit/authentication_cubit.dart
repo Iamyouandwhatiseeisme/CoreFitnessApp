@@ -67,19 +67,22 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
     }
   }
 
-  // Future<void> signInWithGithub() async {
-  //   try {
-  //     emit(AuthenticationSigningIn());
+  Future<void> signInWithEmail({
+    required String email,
+    required String password,
+  }) async {
+    debugPrint('triggered signInWithEmail');
+    try {
+      final AuthResponse res = await _client.auth.signInWithPassword(
+        email: email,
+        password: password,
+      );
+      debugPrint(res.toString());
 
-  //     await supabase.auth.signInWithOAuth(
-  //       OAuthProvider.github,
-  //       redirectTo: kIsWeb ? null : 'corefitness://com.example.core_fitness',
-  //       authScreenLaunchMode: kIsWeb
-  //           ? LaunchMode.platformDefault
-  //           : LaunchMode.externalApplication,
-  //     );
-  //   } on AuthException catch (e) {
-  //     emit(AuthenticationSignInError(e.message));
-  //   }
-  // }
+      emit(AuthenticationSignedIn());
+    } on AuthException catch (e) {
+      debugPrint(e.message);
+      emit(AuthenticationSignInError(e.message));
+    }
+  }
 }

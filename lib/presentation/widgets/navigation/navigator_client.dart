@@ -8,7 +8,6 @@ class NavigatorClient {
   static const String loginPage = '/landing';
 
   final Map<String, WidgetBuilder> routes = {
-    // authWrapper: (context) => const AuthWrapper(),
     landingPage: (context) => const LandingPage(),
     loginPage: (context) => const LoginPage(),
     signUpPage: (context) => const SignUpPage(),
