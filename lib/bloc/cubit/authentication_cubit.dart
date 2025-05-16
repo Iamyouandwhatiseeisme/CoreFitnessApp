@@ -1,5 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 part 'authentication_state.dart';
@@ -82,6 +84,38 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
       emit(AuthenticationSignedIn());
     } on AuthException catch (e) {
       debugPrint(e.message);
+      emit(AuthenticationSignInError(e.message));
+    }
+  }
+
+  Future<void> signInWithGoogle() async {
+    try {
+      debugPrint('signInWithGoogle called');
+      final webClientId = dotenv.env['GOOGLE_WEB_CLIENT_ID'];
+      debugPrint(webClientId);
+
+      final GoogleSignIn googleSignIn = GoogleSignIn(
+        serverClientId: webClientId,
+      );
+      final googleUser = await googleSignIn.signIn();
+      final googleAuth = await googleUser!.authentication;
+      final accessToken = googleAuth.accessToken;
+      final idToken = googleAuth.idToken;
+
+      if (accessToken == null) {
+        throw 'No Access Token found.';
+      }
+      if (idToken == null) {
+        throw 'No ID Token found.';
+      }
+
+      _client.auth.signInWithIdToken(
+        provider: OAuthProvider.google,
+        idToken: idToken,
+        accessToken: accessToken,
+      );
+      emit(AuthenticationSignedIn());
+    } on AuthException catch (e) {
       emit(AuthenticationSignInError(e.message));
     }
   }
