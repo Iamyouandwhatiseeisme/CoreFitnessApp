@@ -1,4 +1,3 @@
-import 'package:core_fitness/main.dart';
 import 'package:core_fitness/presentation/presentation.dart';
 import 'package:flutter/material.dart';
 

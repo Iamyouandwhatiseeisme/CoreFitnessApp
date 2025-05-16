@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
-import 'package:meta/meta.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 part 'authentication_state.dart';
@@ -17,7 +16,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
 
       if (event == AuthChangeEvent.signedIn && session?.user != null) {
         emit(AuthenticationSignedIn());
-        debugPrint('signedIn ${session?.user?.email}');
+        debugPrint('signedIn ${session?.user.email}');
       } else if (event == AuthChangeEvent.signedOut) {
         debugPrint('signedout');
         emit(AuthenticationSignedOut());
@@ -50,7 +49,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
 
         if (event == AuthChangeEvent.signedIn && session?.user != null) {
           emit(AuthenticationSignedIn());
-          debugPrint('signedIn ${session?.user?.email}');
+          debugPrint('signedIn ${session?.user.email}');
         } else if (event == AuthChangeEvent.signedOut) {
           debugPrint('signedout');
           emit(AuthenticationSignedOut());
