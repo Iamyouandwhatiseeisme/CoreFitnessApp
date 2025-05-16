@@ -2,8 +2,8 @@ import 'package:core_fitness/bloc/cubit/authentication_cubit.dart';
 import 'package:core_fitness/presentation/presentation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -175,7 +175,10 @@ class _LoginFormState extends State<LoginForm> {
               width: 40,
               height: 40,
             ),
-            onPressed: () {},
+            onPressed: () async {
+              debugPrint("google pressed");
+              await context.read<AuthenticationCubit>().signInWithGoogle();
+            },
           ),
 
           SizedBox(height: 10),

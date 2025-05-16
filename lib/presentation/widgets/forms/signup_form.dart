@@ -187,7 +187,7 @@ class _SignUpFormState extends State<SignUpForm> {
                     onPressed: () {
                       Navigator.pushReplacementNamed(
                         context,
-                        NavigatorClient.loginPage,
+                        NavigatorClient.landingPage,
                       );
                     },
                     child: Text('Log in'),
