@@ -49,8 +49,6 @@ class _LandingPageState extends State<LandingPage> {
                 ),
               ),
             );
-          } else if (state is AuthenticationSignInError) {
-            return LoginPage();
           } else {
             return LoginPage();
           }
