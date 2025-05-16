@@ -19,9 +19,16 @@ class _LoginFormState extends State<LoginForm> {
 
   void _submit() {
     if (_formKey.currentState!.validate()) {
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text('Logging in...')));
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Logging in...'),
+          duration: Duration(milliseconds: 500),
+        ),
+      );
+      context.read<AuthenticationCubit>().signInWithEmail(
+        email: _emailTextController.text,
+        password: _passwordTextController.text,
+      );
     }
   }
 
@@ -181,9 +188,6 @@ class _LoginFormState extends State<LoginForm> {
             ),
             onPressed: () async {
               await context.read<AuthenticationCubit>().signInWithGithub();
-
-              final currentUser = Supabase.instance.client.auth.currentUser;
-              debugPrint(currentUser?.email);
             },
           ),
         ],

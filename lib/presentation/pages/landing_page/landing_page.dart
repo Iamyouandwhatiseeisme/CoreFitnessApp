@@ -17,7 +17,24 @@ class _LandingPageState extends State<LandingPage> {
   Widget build(BuildContext context) {
     debugPrint("landing page");
     return BlocListener<AuthenticationCubit, AuthenticationState>(
-      listener: (context, state) {},
+      listener: (context, state) {
+        if (state is AuthenticationSignInError) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(state.message),
+              duration: const Duration(seconds: 2),
+            ),
+          );
+        }
+        if (state is AuthenticationSignedIn) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text("Signed in successfully!"),
+              duration: const Duration(seconds: 2),
+            ),
+          );
+        }
+      },
       child: BlocBuilder<AuthenticationCubit, AuthenticationState>(
         builder: (context, state) {
           if (state is AuthenticationSignedIn) {
@@ -32,6 +49,8 @@ class _LandingPageState extends State<LandingPage> {
                 ),
               ),
             );
+          } else if (state is AuthenticationSignInError) {
+            return LoginPage();
           } else {
             return LoginPage();
           }
