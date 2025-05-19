@@ -45,6 +45,8 @@ dependencies:
   app_links: ^6.4.0
   google_sign_in: ^6.3.0
   supabase_auth_ui: ^0.5.5
+  country_flags: ^3.2.0
+  flag: ^7.0.0
 
 dev_dependencies:
   flutter_test:

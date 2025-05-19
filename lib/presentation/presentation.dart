@@ -7,3 +7,4 @@ export "pages/landing_page/landing_page.dart";
 export "widgets/forms/signup_form.dart";
 export "pages/dashboard_page/dashboard_page.dart";
 export "widgets/buttons/theme_button.dart";
+export "widgets/buttons/language_button.dart";

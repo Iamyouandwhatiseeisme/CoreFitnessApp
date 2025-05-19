@@ -1,6 +1,5 @@
 import 'package:core_fitness/presentation/presentation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class DashBoard extends StatefulWidget {
@@ -40,6 +39,8 @@ class _DashBoardState extends State<DashBoard> {
         ),
         centerTitle: true,
         actions: [
+          LanguageButton(),
+
           IconButton(
             onPressed: () {
               Navigator.pushNamed(context, "/profile");
