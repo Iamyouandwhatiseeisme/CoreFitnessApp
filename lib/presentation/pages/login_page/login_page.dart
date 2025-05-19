@@ -28,7 +28,7 @@ class _LoginPageState extends State<LoginPage> {
             child: Center(
               child: Container(
                 width: MediaQuery.of(context).size.width * 0.95,
-                height: MediaQuery.of(context).size.height * 0.75,
+                height: MediaQuery.of(context).size.height * 0.5,
                 decoration: BoxDecoration(
                   color: Colors.white.withValues(alpha: 0.99),
                   borderRadius: BorderRadius.circular(20),

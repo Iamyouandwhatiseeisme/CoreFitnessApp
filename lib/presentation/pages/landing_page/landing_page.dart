@@ -12,7 +12,6 @@ class LandingPage extends StatefulWidget {
 }
 
 class _LandingPageState extends State<LandingPage> {
-  final supabase = Supabase.instance.client;
   @override
   Widget build(BuildContext context) {
     debugPrint("landing page");
@@ -39,20 +38,40 @@ class _LandingPageState extends State<LandingPage> {
         builder: (context, state) {
           if (state is AuthenticationSignedIn) {
             debugPrint("signed instate");
-            return Scaffold(
-              body: Center(
-                child: TextButton(
-                  onPressed: () {
-                    supabase.auth.signOut();
-                  },
-                  child: Text("signout"),
-                ),
-              ),
-            );
+            return DashBoard();
           } else {
             return LoginPage();
           }
         },
+      ),
+    );
+  }
+}
+
+class DashBoard extends StatefulWidget {
+  const DashBoard({super.key});
+
+  @override
+  State<DashBoard> createState() => _DashBoardState();
+}
+
+class _DashBoardState extends State<DashBoard> {
+  final supabase = Supabase.instance.client;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Center(
+            child: TextButton(
+              onPressed: () {
+                supabase.auth.signOut();
+              },
+              child: Text("signout"),
+            ),
+          ),
+        ),
       ),
     );
   }
