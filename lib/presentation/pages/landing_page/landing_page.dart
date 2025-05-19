@@ -47,32 +47,3 @@ class _LandingPageState extends State<LandingPage> {
     );
   }
 }
-
-class DashBoard extends StatefulWidget {
-  const DashBoard({super.key});
-
-  @override
-  State<DashBoard> createState() => _DashBoardState();
-}
-
-class _DashBoardState extends State<DashBoard> {
-  final supabase = Supabase.instance.client;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: SafeArea(
-          child: Center(
-            child: TextButton(
-              onPressed: () {
-                supabase.auth.signOut();
-              },
-              child: Text("signout"),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
