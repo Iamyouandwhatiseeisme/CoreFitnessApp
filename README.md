@@ -1,16 +1,37 @@
-# core_fitness
+# Core Fitness App (Flutter)
 
-A new Flutter project.
 
-## Getting Started
+Welcome to the Core Fitness App, the mobile extension of the Core Fitness platform — your ultimate destination for fitness enthusiasts! This Flutter application delivers a rich, responsive, and native mobile experience for users interested in fitness tips, workout routines, nutritional guidance, and a supportive community.
 
-This project is a starting point for a Flutter application.
+## 🏋️ Introduction
+Core Fitness App is a cross-platform mobile application built using Flutter, designed for fitness enthusiasts of all levels. Whether you’re a beginner looking for a structured workout plan or a pro wanting to track progress and connect with others, this app is your one-stop fitness companion.
 
-A few resources to get you started if this is your first Flutter project:
+### ✨ Features
+Workout Routines
+Browse and follow structured workout plans for different fitness levels and goals.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Nutritional Guidance
+Read up on healthy eating tips, balanced diets, and nutrition articles.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Community Forums
+Connect with fellow users, ask questions, share progress, and get motivated.
+
+Responsive & Native Feel
+Enjoy a smooth experience on both Android and iOS with Flutter’s native rendering.
+
+User Profiles
+Create and customize your fitness journey, set goals, and track your achievements.
+
+Fitness Market
+Explore fitness-related products and services.
+
+#### 🛠 Technologies Used
+Framework: Flutter (Dart)
+
+Backend: Supabase (auth + database)
+
+State Management: BloC 
+
+Authentication: Supabase Auth
+
+Deployment: Google Play Store / Apple App Store (planned or existing)

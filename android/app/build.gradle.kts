@@ -8,7 +8,8 @@ plugins {
 android {
     namespace = "com.example.core_fitness"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    ndkVersion = "29.0.13113456"
+    
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -41,4 +42,11 @@ android {
 
 flutter {
     source = "../.."
+}
+dependencies {
+    implementation("androidx.credentials:credentials:1.6.0-alpha01")
+
+    // optional - needed for credentials support from play services, for devices running
+    // Android 13 and below.
+    implementation("androidx.credentials:credentials-play-services-auth:1.6.0-alpha01")
 }
