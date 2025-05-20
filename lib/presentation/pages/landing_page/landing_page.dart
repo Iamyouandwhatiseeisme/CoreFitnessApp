@@ -2,7 +2,6 @@ import 'package:core_fitness/bloc/cubit/authentication_cubit.dart';
 import 'package:core_fitness/presentation/presentation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({super.key});
@@ -43,35 +42,6 @@ class _LandingPageState extends State<LandingPage> {
             return LoginPage();
           }
         },
-      ),
-    );
-  }
-}
-
-class DashBoard extends StatefulWidget {
-  const DashBoard({super.key});
-
-  @override
-  State<DashBoard> createState() => _DashBoardState();
-}
-
-class _DashBoardState extends State<DashBoard> {
-  final supabase = Supabase.instance.client;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: SafeArea(
-          child: Center(
-            child: TextButton(
-              onPressed: () {
-                supabase.auth.signOut();
-              },
-              child: Text("signout"),
-            ),
-          ),
-        ),
       ),
     );
   }

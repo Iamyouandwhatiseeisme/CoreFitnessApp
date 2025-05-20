@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:meta/meta.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 part 'sign_up_state.dart';
@@ -16,10 +15,7 @@ class SignUpCubit extends Cubit<SignUpState> {
     debugPrint('signUpNewUser called');
     emit(SigningUp());
     try {
-      final AuthResponse res = await _client.auth.signUp(
-        email: email,
-        password: password,
-      );
+      await _client.auth.signUp(email: email, password: password);
       _client.auth.signOut();
 
       emit(SignedUp());

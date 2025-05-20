@@ -1,0 +1,1 @@
+enum LanguageMode { english, georgian }
