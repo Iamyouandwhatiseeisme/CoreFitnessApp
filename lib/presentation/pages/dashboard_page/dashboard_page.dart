@@ -16,11 +16,33 @@ class _DashBoardState extends State<DashBoard> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actionsPadding: const EdgeInsets.only(right: 10),
+        leadingWidth: 60,
+
         toolbarHeight: 80,
         backgroundColor: Colors.white,
-        leading: IconButton(
-          icon: Image.asset("assets/icons/Header Logo.webp"),
-          onPressed: () {},
+        leading: Material(
+          shadowColor: Colors.black,
+          shape: ShapeBorder.lerp(
+            const CircleBorder(),
+            const CircleBorder(),
+            0.5,
+          ),
+          child: Container(
+            margin: const EdgeInsets.all(2),
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: BoxBorder.all(
+                color: Colors.grey.withAlpha(50),
+                width: 0.5,
+              ),
+            ),
+
+            child: IconButton(
+              icon: Image.asset("assets/icons/Header Logo.webp"),
+              onPressed: () {},
+            ),
+          ),
         ),
 
         title: Row(
