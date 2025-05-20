@@ -1,4 +1,5 @@
 import 'package:core_fitness/bloc/cubit/authentication_cubit.dart';
+import 'package:core_fitness/bloc/providers.dart';
 import 'package:core_fitness/data/get_it_methods.dart';
 import 'package:core_fitness/presentation/presentation.dart';
 import 'package:core_fitness/theme/themes.dart';
@@ -6,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get_it/get_it.dart';
+import 'package:provider/provider.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 final sl = GetIt.instance;
@@ -21,7 +23,12 @@ Future<void> main() async {
     anonKey: dotenv.env["SUPABASE_ANON_KEY"]!,
   );
 
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => ThemeProvider(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -31,13 +38,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [BlocProvider(create: (context) => AuthenticationCubit())],
-      child: MaterialApp(
-        title: 'CoreFitness',
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        ),
-        routes: sl.get<NavigatorClient>().routes,
+      child: Consumer<ThemeProvider>(
+        builder: (context, themeProvider, child) {
+          return MaterialApp(
+            title: 'CoreFitness',
+            debugShowCheckedModeBanner: false,
+            theme: lightTheme,
+            darkTheme: darkTheme,
+            themeMode: themeProvider.themeMode,
+            routes: sl.get<NavigatorClient>().routes,
+          );
+        },
       ),
     );
   }

@@ -1,4 +1,6 @@
+import 'package:core_fitness/bloc/providers.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ThemeButton extends StatefulWidget {
   const ThemeButton({super.key});
@@ -8,15 +10,6 @@ class ThemeButton extends StatefulWidget {
 }
 
 class _ThemeButtonState extends State<ThemeButton> {
-  ThemeMode _currentMode = ThemeMode.system;
-
-  void _toggleMode() {
-    setState(() {
-      _currentMode =
-          ThemeMode.values[(_currentMode.index + 1) % ThemeMode.values.length];
-    });
-  }
-
   IconData _getIconForMode(ThemeMode mode) {
     switch (mode) {
       case ThemeMode.system:
@@ -30,9 +23,10 @@ class _ThemeButtonState extends State<ThemeButton> {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
     return IconButton(
-      onPressed: _toggleMode,
-      icon: Icon(_getIconForMode(_currentMode)),
+      onPressed: themeProvider.toggleMode,
+      icon: Icon(_getIconForMode(themeProvider.themeMode)),
     );
   }
 }

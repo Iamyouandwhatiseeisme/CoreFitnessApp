@@ -62,7 +62,6 @@ class _DashBoardState extends State<DashBoard> {
         centerTitle: true,
         actions: [
           LanguageButton(),
-
           IconButton(
             onPressed: () {
               Navigator.pushNamed(context, "/profile");
