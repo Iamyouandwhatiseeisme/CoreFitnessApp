@@ -47,6 +47,7 @@ dependencies:
   supabase_auth_ui: ^0.5.5
   country_flags: ^3.2.0
   flag: ^7.0.0
+  provider: ^6.1.5
 
 dev_dependencies:
   flutter_test:
