@@ -1,4 +1,3 @@
-import 'package:core_fitness/data/enums.dart';
 import 'package:flutter/material.dart';
 
 class ThemeButton extends StatefulWidget {
@@ -9,22 +8,22 @@ class ThemeButton extends StatefulWidget {
 }
 
 class _ThemeButtonState extends State<ThemeButton> {
-  AppThemeMode _currentMode = AppThemeMode.system;
+  ThemeMode _currentMode = ThemeMode.system;
 
   void _toggleMode() {
     setState(() {
-      _currentMode = AppThemeMode
-          .values[(_currentMode.index + 1) % AppThemeMode.values.length];
+      _currentMode =
+          ThemeMode.values[(_currentMode.index + 1) % ThemeMode.values.length];
     });
   }
 
-  IconData _getIconForMode(AppThemeMode mode) {
+  IconData _getIconForMode(ThemeMode mode) {
     switch (mode) {
-      case AppThemeMode.system:
+      case ThemeMode.system:
         return Icons.desktop_windows;
-      case AppThemeMode.light:
+      case ThemeMode.light:
         return Icons.light_mode;
-      case AppThemeMode.dark:
+      case ThemeMode.dark:
         return Icons.dark_mode;
     }
   }
