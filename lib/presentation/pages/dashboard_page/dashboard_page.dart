@@ -1,8 +1,7 @@
-import 'package:core_fitness/bloc/providers.dart';
 import 'package:core_fitness/presentation/presentation.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:material_symbols_icons/symbols.dart';
 
 class DashBoard extends StatefulWidget {
   const DashBoard({super.key});
@@ -89,13 +88,18 @@ class _AppbarWithHamburgerMenuState extends State<AppbarWithHamburgerMenu> {
 
             centerTitle: true,
             background: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+
+              spacing: 10,
+
               children: [
-                Icon(Icons.person_off_outlined),
-                const SizedBox(width: 10),
-                const Text(
-                  "Welcome to CoreFitness",
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-                ),
+                Icon(Symbols.fitness_center),
+                Icon(Symbols.post),
+                Icon(Symbols.shop),
+                Icon(Symbols.orders_sharp),
+                Icon(Symbols.person_filled_sharp),
+                Icon(Symbols.home),
               ],
             ),
           ),
