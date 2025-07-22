@@ -19,10 +19,7 @@ class _LoginFormState extends State<LoginForm> {
   void _submit() {
     if (_formKey.currentState!.validate()) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('Logging in...'),
-          duration: Duration(milliseconds: 500),
-        ),
+        SnackBar(content: Text('Logging in...'), duration: Duration(milliseconds: 500)),
       );
       context.read<AuthenticationCubit>().signInWithEmail(
         email: _emailTextController.text,
@@ -62,10 +59,7 @@ class _LoginFormState extends State<LoginForm> {
               decoration: InputDecoration(
                 labelText: 'Email',
                 enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Colors.blueGrey.withAlpha(40),
-                    width: 2,
-                  ),
+                  borderSide: BorderSide(color: Colors.blueGrey.withAlpha(40), width: 2),
                   borderRadius: BorderRadius.circular(10),
                 ),
               ),
@@ -87,10 +81,7 @@ class _LoginFormState extends State<LoginForm> {
               decoration: InputDecoration(
                 labelText: 'Password',
                 enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Colors.blueGrey.withAlpha(40),
-                    width: 2,
-                  ),
+                  borderSide: BorderSide(color: Colors.blueGrey.withAlpha(40), width: 2),
                 ),
               ),
               obscureText: true,
@@ -119,9 +110,7 @@ class _LoginFormState extends State<LoginForm> {
                     foregroundColor: Colors.white,
                     shadowColor: Colors.grey.withAlpha(70),
                     backgroundColor: Colors.blue.withAlpha(80),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                     padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   ),
                   onPressed: () {
@@ -143,10 +132,7 @@ class _LoginFormState extends State<LoginForm> {
               Text("Don't have an account?"),
               TextButton(
                 onPressed: () {
-                  Navigator.pushReplacementNamed(
-                    context,
-                    NavigatorClient.signUpPage,
-                  );
+                  Navigator.pushReplacementNamed(context, NavigatorClient.signUpPage);
                   // Navigator.pushReplacementNamed(
                   //   context,
                   //   NavigatorClient.signUpPage,
@@ -163,17 +149,10 @@ class _LoginFormState extends State<LoginForm> {
             indent: 20,
             endIndent: 20,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [Text("Or login with")],
-          ),
+          Row(mainAxisAlignment: MainAxisAlignment.center, children: [Text("Or login with")]),
           OauthButton(
             text: "Sign in with Google",
-            icon: SvgPicture.asset(
-              'assets/icons/google.svg',
-              width: 40,
-              height: 40,
-            ),
+            icon: SvgPicture.asset('assets/icons/google.svg', width: 40, height: 40),
             onPressed: () async {
               debugPrint("google pressed");
               await context.read<AuthenticationCubit>().signInWithGoogle();
@@ -183,11 +162,7 @@ class _LoginFormState extends State<LoginForm> {
           SizedBox(height: 10),
           OauthButton(
             text: "Sign in with Github",
-            icon: SvgPicture.asset(
-              'assets/icons/github.svg',
-              width: 40,
-              height: 40,
-            ),
+            icon: SvgPicture.asset('assets/icons/github.svg', width: 40, height: 40),
             onPressed: () async {
               await context.read<AuthenticationCubit>().signInWithGithub();
             },

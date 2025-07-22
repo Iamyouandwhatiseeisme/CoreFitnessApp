@@ -39,13 +39,11 @@ class _DashBoardState extends State<DashBoard> {
   }
 }
 
-class AppbarWithHamburgerMenu extends StatefulWidget
-    implements PreferredSizeWidget {
+class AppbarWithHamburgerMenu extends StatefulWidget implements PreferredSizeWidget {
   const AppbarWithHamburgerMenu({super.key});
 
   @override
-  State<AppbarWithHamburgerMenu> createState() =>
-      _AppbarWithHamburgerMenuState();
+  State<AppbarWithHamburgerMenu> createState() => _AppbarWithHamburgerMenuState();
 
   @override
   Size get preferredSize => Size.fromHeight(300);
@@ -55,56 +53,51 @@ class _AppbarWithHamburgerMenuState extends State<AppbarWithHamburgerMenu> {
   @override
   Widget build(BuildContext context) {
     return NestedScrollView(
-      headerSliverBuilder: (context, innerBoxIsScrolled) => [
-        SliverAppBar(
-          actions: [LanguageButton(), ThemeButton()],
-          leading: Container(
-            margin: const EdgeInsets.all(2),
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              border: BoxBorder.all(
-                color: Colors.grey.withAlpha(50),
-                width: 0.5,
+      headerSliverBuilder:
+          (context, innerBoxIsScrolled) => [
+            SliverAppBar(
+              actions: [LanguageButton(), ThemeButton()],
+              leading: Container(
+                margin: const EdgeInsets.all(2),
+                decoration: BoxDecoration(shape: BoxShape.circle),
+
+                child: IconButton(
+                  icon: Image.asset("assets/icons/Header Logo.webp"),
+                  onPressed: () {},
+                ),
+              ),
+              floating: true,
+              snap: true,
+
+              expandedHeight: 300,
+              pinned: true,
+              flexibleSpace: FlexibleSpaceBar(
+                titlePadding: const EdgeInsets.all(10),
+                title: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [SizedBox(child: const Text("CoreFitness"))],
+                ),
+
+                centerTitle: true,
+                background: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+
+                  spacing: 10,
+
+                  children: [
+                    Icon(Symbols.fitness_center),
+                    Icon(Symbols.post),
+                    Icon(Symbols.shop),
+                    Icon(Symbols.orders_sharp),
+                    Icon(Symbols.person_filled_sharp),
+                    Icon(Symbols.home),
+                  ],
+                ),
               ),
             ),
-
-            child: IconButton(
-              icon: Image.asset("assets/icons/Header Logo.webp"),
-              onPressed: () {},
-            ),
-          ),
-          floating: true,
-          snap: true,
-
-          expandedHeight: 300,
-          pinned: true,
-          flexibleSpace: FlexibleSpaceBar(
-            titlePadding: const EdgeInsets.all(10),
-            title: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [SizedBox(child: const Text("CoreFitness"))],
-            ),
-
-            centerTitle: true,
-            background: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-
-              spacing: 10,
-
-              children: [
-                Icon(Symbols.fitness_center),
-                Icon(Symbols.post),
-                Icon(Symbols.shop),
-                Icon(Symbols.orders_sharp),
-                Icon(Symbols.person_filled_sharp),
-                Icon(Symbols.home),
-              ],
-            ),
-          ),
-        ),
-      ],
+          ],
       body: Container(),
 
       // child: AppBar(

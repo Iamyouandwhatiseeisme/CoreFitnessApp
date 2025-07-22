@@ -16,9 +16,7 @@ class _MyHomePageState extends State<SignUpPage> {
     return BlocProvider(
       create: (context) => SignUpCubit(),
       child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        ),
+        appBar: AppBar(backgroundColor: Theme.of(context).colorScheme.inversePrimary),
         body: SafeArea(
           child: SingleChildScrollView(
             child: Container(
@@ -43,13 +41,7 @@ class _MyHomePageState extends State<SignUpPage> {
                       Container(
                         padding: EdgeInsets.all(10),
                         margin: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          border: BoxBorder.all(
-                            color: Colors.grey.withAlpha(80),
-                            width: 2,
-                          ),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
+                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
 
                         child: SignUpForm(),
                       ),
