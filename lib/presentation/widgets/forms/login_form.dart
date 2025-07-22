@@ -109,7 +109,7 @@ class _LoginFormState extends State<LoginForm> {
                     elevation: 5,
                     foregroundColor: Colors.white,
                     shadowColor: Colors.grey.withAlpha(70),
-                    backgroundColor: Colors.blue.withAlpha(80),
+                    backgroundColor: Colors.blue,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                     padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   ),
